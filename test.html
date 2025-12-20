@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Reverse Input Form</title>
+    <style>
+      :root {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+          Arial;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: #f7fafc;
+        margin: 0;
+        padding: 20px;
+      }
+      .card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(20, 20, 40, 0.08);
+        padding: 24px;
+        width: 100%;
+        max-width: 520px;
+      }
+      h1 {
+        margin: 0 0 14px;
+        font-size: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      button {
+        padding: 10px 14px;
+        border-radius: 8px;
+        border: 0;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      button.go {
+        background: #2563eb;
+        color: #fff;
+      }
+      button.clear {
+        background: #e5e7eb;
+      }
+      .output {
+        margin-top: 18px;
+        padding: 12px;
+        border-radius: 8px;
+        background: #f1f5f9;
+        border: 1px dashed #e2e8f0;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+      .hint {
+        color: #6b7280;
+        font-size: 13px;
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card" role="main">
+      <h1>Reverse Input</h1>
+      <form id="reverseForm" autocomplete="off">
+        <label for="inputText">Type something:</label>
+        <input
+          id="inputText"
+          name="inputText"
+          type="text"
+          placeholder="Enter text to reverse"
+        />
+        <div class="row">
+          <button class="go" type="submit">Reverse</button>
+          <button class="clear" type="button" id="clearBtn">Clear</button>
+        </div>
+      </form>
+
+      <div class="output" id="output" aria-live="polite">
+        Your reversed text will appear here.
+      </div>
+      <div class="hint">
+        Tip: HTML tags will be shown as text (safe) — no markup will be
+        executed.
+      </div>
+    </main>
+
+    <script>
+      const form = document.getElementById("reverseForm");
+      const input = document.getElementById("inputText");
+      const output = document.getElementById("output");
+      const clearBtn = document.getElementById("clearBtn");
+
+      function reverseString(str) {
+        // simple safe reverse that preserves unicode grapheme clusters reasonably well
+        // for full grapheme support a library is needed; this works for most normal text
+        return Array.from(str).reverse().join("");
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const value = input.value;
+        if (!value) {
+          output.textContent = "Please enter some text to reverse.";
+          return;
+        }
+        const reversed = reverseString(value);
+        // use textContent to avoid interpreting any HTML
+        output.textContent = reversed;
+      });
+
+      clearBtn.addEventListener("click", () => {
+        input.value = "";
+        output.textContent = "Your reversed text will appear here.";
+        input.focus();
+      });
+    </script>
+  </body>
+</html>

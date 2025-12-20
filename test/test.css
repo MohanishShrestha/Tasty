@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+/* custom color */
+:root{       
+    --yellow:#fed330;
+    --red:#e74c3c;
+    --white:#fff;
+    --black:#222;
+    --light-color:#777;
+    --border:.2rem solid var(--black);
+    --blue:#fed330;
+}
+
+
+*{
+   font-family: 'Rubik',sans-serif; 
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   outline: none;
+   border: none;
+   text-decoration: none;
+}
+
+
+.hero .slides{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    gap: 2rem;
+    margin-bottom: 6rem;
+    
+}
+
+.hero .slides .image{
+    flex:1 1 40rem;
+    margin-left: 10rem;
+}
+
+.hero .slides .image img{
+    width: 100%;
+    height: 60%;
+    object-fit: contain;
+    align-items: center;
+    display: none;
+}
+
+img.display{
+    display: block;
+}
+
+.hero .slides .content{
+    flex: 1 1 40 rem;
+    text-align: center;
+    margin-left: 20rem;
+    display: none;
+}
+
+.content.displayc{
+    display: block;
+}
+
+.hero .slides .content span{
+    font-size: 2.5rem;
+    color: var(--light-color);
+}
+
+.hero .slides .content h3{
+    margin: 1rem 0;
+    font-size: 4rem;
+    color: var(--black);
+    text-transform: capitalize;
+}
+
+/* for logo */
+@media (max-width:450px){
+    html{
+        font-size: 50%;
+    }
+
+    .title{
+        font-size: 3rem;
+     }
+
+    .header .flex .logo{
+        font-size: 2rem;
+    }
+
+    .hero .slide .content h3{
+        font-size: 5rem;
+     }
+
+}
+
+
+@media (max-width:480px){
+    .hero .slide .content{
+        margin-left: 15rem;
+    }
+
+    .hero .slide .content span{
+        font-size: 80%;
+    }
+    
+    .hero .slide .content h3{
+        font-size: 5rem;
+    }
+
+    .products .box-container{
+        grid-template-columns: 1fr
+    }
+}
+

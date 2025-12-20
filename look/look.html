@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Sliding Image</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="look.css">
+</head>
+<body>
+<div class="container">
+    
+    <div class="slide" >
+        <!-- Container for the HTML slideshow -->
+        <div class="imageshow-container">
+            <!-- Individual image slides -->
+            <div class="imageClass fade">
+                <img src="shoes3.png" >
+                <!-- Caption for the first image -->
+                
+            </div>
+
+            <div style="text-align: center;">Image 1</div>
+
+            <div class="imageClass fade">
+                <img src="shoes1.png" >
+                <!-- Caption for the second image -->
+                <div style="text-align: center;">Image 2</div>
+            </div>
+
+            <div class="imageClass fade">
+                <img src="shoes2.png" >
+                <!-- Caption for the third image -->
+                <div style="text-align: center;">Image 3</div>
+            </div>
+        </div>
+        <br>
+
+        <!-- The dots/circles for navigation -->
+        <div style="text-align:center">
+            <span class="dot" onclick="currentImage(1)"></span>
+            <span class="dot" onclick="currentImage(2)"></span>
+            <span class="dot" onclick="currentImage(3)"></span>
+        </div>
+    </div>
+</div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="look.js"></script>
+</body>
+</html>
